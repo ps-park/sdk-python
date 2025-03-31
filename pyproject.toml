@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pspark-sdk"
+version = "0.0.13"
+requires-python = ">=3.8.0"
+description = "Python SDK for merchant REST API"
+readme = "README.md"
+authors = [{ name = "PSPark" }]
+license = { file = "LICENSE" }
+dependencies = [
+    "httpx",
+    "python-jose[cryptography]",
+]
+
+[project.urls]
+Homepage = "https://github.com/ps-park/sdk-python"
