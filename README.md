@@ -22,12 +22,12 @@ Bellow shown a simple example of SDK usage.
 
 ```python
 from pspark import PSPark
-from pspark.requests import BalanceRequest
+from pspark.requests import BalancesRequest
 
 
-sdk = PSPark(jwt_key, api_key)
+sdk = PSPark(jwt_key='jwt-key', api_key='api-key')
 
-response = sdk.get_balance(BalancesRequest())
+response = sdk.get_balances(BalancesRequest())
 ```
 
 For async request you have to use `PSParkAsync`.
@@ -38,7 +38,7 @@ from pspark import PSParkAsync
 from pspark.requests import TransactionRequest
 
 
-sdk = PSParkAsync(jwt_key, api_key)
+sdk = PSParkAsync(jwt_key='jwt-key', api_key='api-key')
 
 async def async_main():
     response = await sdk.get_transaction_status(TransactionRequest(
