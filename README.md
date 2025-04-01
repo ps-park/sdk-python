@@ -50,6 +50,8 @@ async def async_main():
 asyncio.run(async_main())
 ```
 
+> More request examples can find [here](docs).
+
 ## Validation errors
 
 The API doesn't implement all RESTFull API requirements and has its own response structure.
