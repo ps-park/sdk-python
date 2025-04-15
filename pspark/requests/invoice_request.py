@@ -11,11 +11,11 @@ class InvoiceRequest(AbstractRequest):
     wallet_id: str
     reference: str
     amount: float
+    return_url: str
     details: Optional[Details] = None
     title: Optional[str] = None
     description: Optional[str] = None
     callback_url: Optional[str] = None
-    return_url: Optional[str] = None
     nonce: int = time.time_ns()
 
     def __post_init__(self):
