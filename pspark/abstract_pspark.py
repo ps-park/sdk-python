@@ -14,7 +14,7 @@ class AbstractPSPark(ABC):
         self._jwt_key = jwt_key
         self._api_key = api_key
         self._timeout = timeout
-        self._options = options
+        self._options = options if options is not None else {}
         self._is_debug_mode = (DEBUG_MODE_OPTION in self._options) and (self._options[DEBUG_MODE_OPTION]) and (
                     os.getenv('TYPE_ENV') != 'production')
 
