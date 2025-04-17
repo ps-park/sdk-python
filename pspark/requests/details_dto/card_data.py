@@ -1,5 +1,6 @@
-from typing import Optional, Union
 from dataclasses import dataclass
+from typing import Optional, Union
+
 from ..abstract_request import AbstractRequest
 
 
