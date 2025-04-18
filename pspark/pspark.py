@@ -44,7 +44,11 @@ class PSPark(AbstractPSPark):
 
     def create_invoice(self, invoice_request: InvoiceRequest) -> HttpResponse:
         return self._client.send_request(
-            path=ApiURL.WALLET_INVOICE_CREATE,
+            path=(
+                ApiURL.WALLET_INVOICE_S2S_CREATE
+                if self._is_s2s_mode()
+                else ApiURL.WALLET_INVOICE_CREATE
+            ),
             url_params={"wallet_id": invoice_request.wallet_id},
             body=invoice_request.as_dict(),
         )

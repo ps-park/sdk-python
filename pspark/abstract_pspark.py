@@ -1,7 +1,14 @@
 import os
-
-from .constants import *
 from abc import ABC, abstractmethod
+
+from .constants import (
+    BASE_S2S_URL,
+    BASE_URL,
+    CUSTOM_BASE_URL_OPTION,
+    DEBUG_MODE_OPTION,
+    REQUEST_TIMEOUT,
+    S2S_MODE_OPTION,
+)
 
 
 class AbstractPSPark(ABC):
@@ -25,8 +32,13 @@ class AbstractPSPark(ABC):
         """Abstract method that must be implemented in subclasses"""
         pass
 
+    def _is_s2s_mode(self) -> bool:
+        return (
+            S2S_MODE_OPTION in self._options and self._options[S2S_MODE_OPTION] is True
+        )
+
     def _get_base_url(self) -> str:
         if self._is_debug_mode and CUSTOM_BASE_URL_OPTION in self._options:
             return self._options[CUSTOM_BASE_URL_OPTION]
 
-        return BASE_URL
+        return BASE_S2S_URL if self._is_s2s_mode() else BASE_URL
