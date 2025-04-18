@@ -1,7 +1,17 @@
-from typing import Optional
 from dataclasses import dataclass
+from typing import Optional
+
 from .abstract_request import AbstractRequest
-from .details_dto import *
+from .details_dto import (
+    Bank,
+    BillingInfo,
+    CardData,
+    Crypto,
+    Customer,
+    EscrowPayment,
+    Ui,
+    WebData,
+)
 
 
 @dataclass

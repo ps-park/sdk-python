@@ -1,6 +1,6 @@
-from dataclasses import dataclass, asdict
-from typing import Union, Dict, List, Any
 from abc import ABC
+from dataclasses import asdict, dataclass
+from typing import Any, Dict, List, Union
 
 
 def remove_none_recursive(obj: Union[Dict, List, Any]) -> Union[Dict, List, Any]:
@@ -13,7 +13,7 @@ def remove_none_recursive(obj: Union[Dict, List, Any]) -> Union[Dict, List, Any]
 
 
 @dataclass
-class AbstractRequest(ABC):
+class AbstractRequest(ABC):  # noqa: B024
     def as_dict(self) -> dict:
         result = asdict(self)
 

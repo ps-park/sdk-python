@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class ApiVersion(Enum):
-    V1 = 'v1'
+    V1 = "v1"
 
     @staticmethod
     def get_default():

@@ -1,17 +1,23 @@
 from abc import ABC
 
+from ..exceptions import (
+    HttpClientException,
+    HttpRedirectionException,
+    HttpServerException,
+    ResponseValidationException,
+)
 from ..responces import HttpResponse
-from ..exceptions import HttpServerException, HttpClientException, HttpRedirectionException, ResponseValidationException
 
 
-class AbstractHttpClientWrapper(ABC):
-    def __init__(self,
-                 jwt_key: str,
-                 api_key: str,
-                 base_url: str,
-                 timeout: float,
-                 ssl_verify: bool = True,
-                 ):
+class AbstractHttpClientWrapper(ABC):  # noqa: B024
+    def __init__(
+        self,
+        jwt_key: str,
+        api_key: str,
+        base_url: str,
+        timeout: float,
+        ssl_verify: bool = True,
+    ):
         self._jwt_key = jwt_key
         self._api_key = api_key
         self._base_url = base_url
@@ -32,4 +38,6 @@ class AbstractHttpClientWrapper(ABC):
         response_data = response.json()
 
         if "code" in response_data and response_data["code"] != 0:
-            raise ResponseValidationException(response_data["message"], response_data["code"])
+            raise ResponseValidationException(
+                response_data["message"], response_data["code"]
+            )
