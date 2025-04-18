@@ -26,7 +26,7 @@ class AbstractPSPark(ABC):
         pass
 
     def _get_base_url(self) -> str:
-        if self._is_debug_mode and CUSTOM_BASE_URL_OPTION in self._options:
+        if CUSTOM_BASE_URL_OPTION in self._options:
             return self._options[CUSTOM_BASE_URL_OPTION]
 
         return BASE_URL
