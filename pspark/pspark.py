@@ -1,8 +1,16 @@
 from .abstract_pspark import AbstractPSPark
 from .enums import ApiURL
 from .http_client_wrappers import HttpxSyncWrapper
-from .requests import *
-from .responces import *
+from .requests import (
+    AddressRequest,
+    BalanceRequest,
+    BalancesRequest,
+    InvoiceRequest,
+    RateRequest,
+    TransactionRequest,
+    WithdrawalRequest,
+)
+from .responces import HttpResponse
 
 
 class PSPark(AbstractPSPark):
@@ -12,7 +20,7 @@ class PSPark(AbstractPSPark):
             api_key=self._api_key,
             base_url=self._get_base_url(),
             timeout=self._timeout,
-            ssl_verify=not self._is_debug_mode
+            ssl_verify=not self._is_debug_mode,
         )
 
     def get_balances(self, balances_request: BalancesRequest) -> HttpResponse:
@@ -49,7 +57,9 @@ class PSPark(AbstractPSPark):
             body=invoice_request.as_dict(),
         )
 
-    def get_transaction_status(self, transaction_request: TransactionRequest) -> HttpResponse:
+    def get_transaction_status(
+        self, transaction_request: TransactionRequest
+    ) -> HttpResponse:
         return self._client.send_request(
             path=ApiURL.TRANSACTION_STATUS,
             url_params={"wallet_id": transaction_request.wallet_id},

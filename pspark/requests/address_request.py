@@ -1,8 +1,9 @@
 import time
-from typing import Optional
 from dataclasses import dataclass
+from typing import Optional
+
 from .abstract_request import AbstractRequest
-from ..validators import *
+from ..validators import validate_url
 
 
 @dataclass

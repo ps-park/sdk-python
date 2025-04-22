@@ -15,7 +15,7 @@ class HttpResponse:
         return self._content
 
     def body(self) -> str:
-        return self._content.decode('utf-8') if self._content is not None else ''
+        return self._content.decode("utf-8") if self._content is not None else ""
 
     def json(self) -> dict:
         try:
