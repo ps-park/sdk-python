@@ -10,7 +10,7 @@ unittest:
 	python -m unittest discover -s tests -p '*_test.py'
 
 black:
-	black .
+	black pspark/ tests/
 
 flake8:
-	flake8 .
+	flake8 pspark/ tests/
