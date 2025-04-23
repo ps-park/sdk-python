@@ -1,21 +1,25 @@
-import httpx
 from typing import Optional
 
+import httpx
+
 from .abstract_http_client_wrapper import AbstractHttpClientWrapper
-from ..responces import *
-from ..enums import ApiURL, HttpMethod, ApiVersion
+from ..enums import ApiURL, ApiVersion, HttpMethod
 from ..exceptions import HttpException, HttpTimeoutException
-from ..helpers import make_url, make_header
+from ..helpers import make_header, make_url
+from ..responces import HttpResponse
 
 
 class HttpxSyncWrapper(AbstractHttpClientWrapper):
-    def send_request(self,
-                     path: ApiURL,
-                     url_params: Optional[dict] = None,
-                     body: dict = None,
-                     method: HttpMethod = HttpMethod.POST,
-                     ) -> HttpResponse:
-        url = make_url(self._base_url, ApiVersion.get_default().value, path.value, url_params)
+    def send_request(
+        self,
+        path: ApiURL,
+        url_params: Optional[dict] = None,
+        body: dict = None,
+        method: HttpMethod = HttpMethod.POST,
+    ) -> HttpResponse:
+        url = make_url(
+            self._base_url, ApiVersion.get_default().value, path.value, url_params
+        )
         http_client = httpx.Client(timeout=self._timeout, verify=self._ssl_verify)
 
         try:
