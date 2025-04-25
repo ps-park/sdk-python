@@ -1,5 +1,8 @@
 This changelog references the relevant changes (bug and security fixes).
 
+**0.0.16** - _15.04.2025_
+* Added s2s endpoint.
+
 **0.0.15** - _15.04.2025_
 * Unit tests written and quality tools added.
 
