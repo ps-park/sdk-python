@@ -12,6 +12,7 @@ from .details_dto import (
     Ui,
     WebData,
 )
+from .details_dto.project import Project
 
 
 @dataclass
@@ -24,3 +25,4 @@ class Details(AbstractRequest):
     ui: Optional[Ui] = None
     web_data: Optional[WebData] = None
     card_data: Optional[CardData] = None
+    project: Optional[Project] = None
