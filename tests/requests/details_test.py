@@ -47,7 +47,7 @@ class TestDetails(unittest.TestCase):
                 "ui": {"language": "en"},
                 "web_data": {"user_agent": "Firefox"},
                 "card_data": {"number": "4111111111111111"},
-                "project": {"merchant_url": "https://example.com"},
+                "project": {"url": "https://example.com"},
             },
         )
 

@@ -7,7 +7,7 @@ from ...validators import validate_url
 
 @dataclass
 class Project(AbstractRequest):
-    merchant_url: Optional[str] = None
+    url: Optional[str] = None
 
     def __post_init__(self):
-        validate_url(self.merchant_url)
+        validate_url(self.url)
