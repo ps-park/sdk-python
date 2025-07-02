@@ -1,5 +1,8 @@
 This changelog references the relevant changes (bug and security fixes).
 
+**0.0.17** - _02.07.2025_
+* Updated Details DTO.
+
 **0.0.16** - _15.04.2025_
 * Added s2s endpoint.
 
