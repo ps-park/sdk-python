@@ -11,6 +11,7 @@ from pspark.requests.details_dto import (
     Ui,
     WebData,
 )
+from pspark.requests.details_dto.project import Project
 
 
 class TestDetails(unittest.TestCase):
@@ -28,6 +29,7 @@ class TestDetails(unittest.TestCase):
             ui=Ui("en"),
             web_data=WebData(user_agent="Firefox"),
             card_data=CardData("4111111111111111"),
+            project=Project("https://example.com"),
         )
 
         self.assertEqual(
@@ -45,6 +47,7 @@ class TestDetails(unittest.TestCase):
                 "ui": {"language": "en"},
                 "web_data": {"user_agent": "Firefox"},
                 "card_data": {"number": "4111111111111111"},
+                "project": {"url": "https://example.com"},
             },
         )
 
