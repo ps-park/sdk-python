@@ -1,5 +1,8 @@
 This changelog references the relevant changes (bug and security fixes).
 
+**0.0.19** - _09.07.2026_
+* Added PWID (Payway ID) support: `details.payway.pwid` field on InvoiceRequest and WithdrawalRequest.
+
 **0.0.18** - 
 * Added new field to Customer schema. 
 
